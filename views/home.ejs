@@ -13,5 +13,19 @@
         <p><%= message %></p>
         <p><%= file ? file.originalname : '' %></p>  
     </form>
+    <h2>Search Image by Original Name</h2>
+<form action="/fetch" method="GET">
+    <input type="text" name="name" placeholder="Enter original file name" required>
+    <button type="submit">Fetch</button>
+</form>
+
+<% if (imageURL) { %>
+    <h3>Found Image:</h3>
+    <img src="<%= imageURL %>" width="200">
+    <p>Download: <a href="<%= imageURL %>" download>Click Here</a></p>
+<% } else if (searchMessage) { %>
+    <p><%= searchMessage %></p>
+<% } %>
+
 </body>
 </html>
